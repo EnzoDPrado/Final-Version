@@ -1,4 +1,4 @@
-/**************************************************** HEADER ****************************************************/
+
 html{
     scroll-behavior: smooth;
 }
@@ -114,8 +114,13 @@ TODOS OS COMPONENTES DE APRESENTAÇÃO
 
 .text-apresentacao{
     display: flex;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
+}
+
+.text-apresentacao p{
+    width: 450px;
 }
 
 .text-green{
@@ -132,6 +137,23 @@ TODOS OS COMPONENTES DE APRESENTAÇÃO
 TODOS OS COMPONENTES DE PROMOÇÃO
 
 */
+
+.title-promo{
+    display: flex;
+    font-size: 32px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    height: 90px;
+    text-align: start;
+    margin-left: 90px;
+
+}
+
+.componentes-promo{
+    display: flex;
+    flex-direction: column;
+}
 
 .container-promocao{
     background-color: #EBE7DB;
@@ -187,12 +209,29 @@ TODOS OS COMPONENTES DE PROMOÇÃO
     margin-top: 5px;
 }
 
+/**************************************************** FAVORITAS ****************************************************/
+.title-fav{
+    display: flex;
+    font-size: 32px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    height: 90px;
+    text-align: start;
+    margin-left: 90px;
+    margin-top: 30px;
+}
+
 /**************************************************** CARDÁPIO ****************************************************/
 /*
 
 TODOS OS COMPONENTES DE CARDÁPIO
 
 */
+
+.container-cardapio{
+    min-height: 100vh;
+}
 
 .title-cardapio{
     display: flex;
@@ -210,6 +249,25 @@ TODOS OS COMPONENTES DE CARDÁPIO
     border: solid 1px #000;
 }
 
+.grid-traditional, .grid-doces {
+    display: grid;
+    width: 100%;
+    gap: 10px;
+    justify-items: center;
+    column-gap: 50px;
+    grid-template-areas: 
+    'imagem component component'
+    'imagem component component'
+    'component component component';
+}
+
+.grid-doces {
+    grid-template-areas: 
+    'component component component'
+    'component component imagem'
+    'component component imagem';
+}
+
 .elipse1{
     height: 30px;
     width: 30px;
@@ -223,6 +281,32 @@ TODOS OS COMPONENTES DE CARDÁPIO
     border: solid 2px #000;
     border-radius: 50%;
 }
+
+.elipse3{
+    height: 40vh;
+    width: 40vh;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    grid-area: imagem;
+    border-radius: 50%;
+    filter: drop-shadow(-10px 4px 0px rgba(0, 0, 0, 0.25)) drop-shadow(-20px 10px 0px rgba(0, 0, 0, 0.1));
+    background: url('../assents/img/delicious-neapolitan-meat-pizza-pizzeria-delicious-food.jpg') center center;
+    background-size: cover;
+}
+
+.elipse4{
+    height: 40vh;
+    width: 40vh;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    grid-area: imagem;
+    border-radius: 50%;
+    filter: drop-shadow(-15px 4px 0px rgba(0, 0, 0, 0.25)) drop-shadow(-30px 20px 0px rgba(0, 0, 0, 0.1));
+    background: url('../assents/img/delicious-neapolitan-meat-pizza-pizzeria-delicious-food.jpg') center center;
+    background-size: cover;
+}
+
+
 
 .line-cardapio2{
     display: flex;
@@ -557,6 +641,8 @@ footer{
 .container-promocao{
     display: flex;
     flex-direction: row;
+    overflow-x: scroll;
+    align-items: center;
 }
 
 /* teste card promo*/
@@ -607,3 +693,8 @@ footer{
     margin-top: 5px;
 }
 
+
+.container-cards{
+    display: flex;
+    
+}

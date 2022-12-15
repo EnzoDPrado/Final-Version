@@ -1,26 +1,32 @@
 'use strict'
 
 import './card-promo.js'
+import { fetchCardPizza } from '../section-cardapio/sectionCardapio.js'
 
-const fetchCardPromo = async function () {
-    const url = `` 
+const {pizzaComponentes} = await fetchCardPizza(); 
+
+const container = document.querySelector('.container-cards')
+
+export const fetchPizzaByID = async function (id) {
+    const url = `http://40.121.135.142:3000/v1/pizza/${id}` 
     const response = await fetch(url);
     const data = await response.json()
 
-    return data
-}
+     return data
+ }
 
-const pizza = await fetchCardPromo();
-console.log(pizza)
+pizzaComponentes.forEach(pizza => {
+    
+    const card = document.createElement('card-promocoes')
 
-pizza.forEach(item => {
-    const container = document.querySelector('.container-cards')
-    const card = document.createElement('.card-promocoes')
+    const {pizzas} = fetchPizzaByID(pizza.pizzaID)
 
-    card.setAttribute('nome', item.nome)
-    card.setAttribute('descricao', item.descricao)
-    card.setAttribute('imagem', item.image)
-    card.setAttribute('preco', item.preco)
+    
+
+    card.setAttribute('nome', pizza.sabor)
+    card.setAttribute('descricao', pizza.ingredients.join(', '))
+    // card.setAttribute('imagem', pizzas.imagem)
+        card.setAttribute('preco',`R$${pizza.informacoes.preco.toFixed(2)}`)
 
     container.appendChild(card)
 });

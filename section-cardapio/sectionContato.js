@@ -1,10 +1,10 @@
-const form = document.querySelector("#form-register-contato")
+const form = document.querySelector("#contato")
 const button = document.querySelector(".ENVIAR")
 const checkbox = document.querySelector(".checkbox")
 const checkboxInputs = checkbox.querySelectorAll("input")
 
 
-const inputs = Array.from(form.querySelectorAll("input"));
+const inputs = Array.from(document.querySelectorAll(".contato input"));
 
 const checkEmptyInputs = (input) => {
     if(input.value === "") return false

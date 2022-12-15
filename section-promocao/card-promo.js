@@ -1,13 +1,12 @@
-class card extends HTMLElement{
+class PromoCard extends HTMLElement{
     constructor(){
         super();
         this.shadow = this.attachShadow({mode:'open'});
         this.nome = 'Nome do Produto'
-        this.image = 'Sem imagem'
+        this.image = 'https://a-static.mlcdn.com.br/800x560/pizza-marguerita-saborosa-e-caprichada/restauranteepizzariasensacao/6ba8332cbdbe11eba04f4201ac18500e/0a93f50aeca050142998c985c02e842e.jpeg'
         this.bgcolor = '#FFF'
         this.preco = ''
         this.descricao = ''
-        this.id = ''
     }
 
     static get observedAttributes(){
@@ -27,8 +26,6 @@ class card extends HTMLElement{
             this.preco = newValue
         }else if(nameAttr === 'descricao'){
             this.descricao = newValue
-        }else if(nameAttr === 'id'){
-            this.id = newValue
         }
     }
 
@@ -43,8 +40,8 @@ class card extends HTMLElement{
         `
             .card-pizza{
                 display: flex;
-                height: 350px;
-                width: 290px;
+                height: fit-content;
+                width: fit-content;
                 flex-direction: column;
                 margin-left: 90px;
                 gap: 5px;
@@ -56,6 +53,8 @@ class card extends HTMLElement{
             .card-pizza img{
                 display: flex;
                 border-radius: 5px 5px 0px 0px;
+                height: 200px;
+                width: 300px;
             }
             
             .card-pizza h1{
@@ -63,6 +62,7 @@ class card extends HTMLElement{
                 margin-left: 10px;
                 font-family: 'Inter', sans-serif;
                 font-weight: 400;
+                text-transform: capitalize;
             }
             
             .card-descricao{
@@ -70,6 +70,7 @@ class card extends HTMLElement{
                 font-family: 'Inter', sans-serif;
                 margin-left: 10px;
                 font-weight: 300;
+                width: 300px;
             }
             
             .price{
@@ -109,4 +110,4 @@ class card extends HTMLElement{
 }
 
 //Para a web entender esse componente
-customElements.define('card-promocoes', card)
+customElements.define('card-promocoes', PromoCard)
